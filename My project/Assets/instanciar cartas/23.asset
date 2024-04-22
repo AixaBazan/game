@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13ccea260b8fb1d489d2c0a1dacaada8, type: 3}
+  m_Name: 23
+  m_EditorClassIdentifier: 
+  nombre: Teodoro
+  descripcion: plata
+  ID: 23
+  imagen: {fileID: 21300000, guid: 57e31f2a2b59003409cfc8bb83d70253, type: 3}
+  EfectoActivado: 0
+  FONDO: {fileID: 21300000, guid: 0e5fcbd9772110448b9fe79418957925, type: 3}
+  faccion: 1
+  PoderOriginal: 8
+  PuntosDePoder: 8
+  ataque: 2
+  categoria: 0
