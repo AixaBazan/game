@@ -7,9 +7,11 @@ using UnityEngine;
 public class Efectos : MonoBehaviour
 {
     public bool PoderActivado1 = false; //Este booleano comprueba si la carta lider del jugador 1 ya activo su efecto
-    public bool PoderActivado2 = false; //Este booleano comprueba si la carta lider del jugador 2 ya activo su efecto
+    public bool PoderActivado2 = false; //Este booleano comprueba si la carta lider del jugador 2 ya activo su efecto 
     GameObject Hand1;
     GameObject deck1;
+    GameObject Hand2;
+    GameObject deck2;
     GameObject M1;
     GameObject R1;
     GameObject S1;
@@ -35,6 +37,8 @@ public class Efectos : MonoBehaviour
     {
         Hand1 = GameObject.Find("hand1");
         deck1 = GameObject.Find("Deck1");
+        Hand2 = GameObject.Find("hand2");
+        deck2 = GameObject.Find("Deck2");
         M1 = GameObject.Find("Melee1");
         R1 = GameObject.Find("Ranged1");
         S1 = GameObject.Find("Siege1");
@@ -216,7 +220,113 @@ public class Efectos : MonoBehaviour
     }
 
     //A continuacion se muestran los efectos de las cartas especiales
-    public void CartaDespeje(GameObject carta) // aqui chequeo q el efecto se active solo cuando se pueda
+    public void Señuelo(GameObject senuelo) // Efecto de la carta senuelo
+    {
+        if(senuelo.GetComponent<CartaEspecialDisplay>().card.faccion == CartasEspeciales.Faccion.Fairies)
+        {
+            if(GM.GetComponent<GameManager>().IsPlaying == false && senuelo.GetComponent<CartaEspecialDisplay>().card.CartaJugada == false)
+            {
+                GameObject CartaACambiar = FCMP(Melee_1, Ranged_1, Siege_1);
+                if(CartaACambiar != null)
+                {
+                    if(CartaACambiar.GetComponent<CardDisplay>().card.ataque == CardUnity.TipoDeAtaque.Melee)
+                    {
+                        senuelo.transform.SetParent(M1.transform, false);
+                    }
+                    else if(CartaACambiar.GetComponent<CardDisplay>().card.ataque == CardUnity.TipoDeAtaque.Ranged)
+                    {
+                        senuelo.transform.SetParent(R1.transform, false);
+                    }
+                    else if(CartaACambiar.GetComponent<CardDisplay>().card.ataque == CardUnity.TipoDeAtaque.Siege)
+                    {
+                        senuelo.transform.SetParent(S1.transform, false);
+                    }
+                    CartaACambiar.transform.SetParent(Hand1.transform,false);
+                    GM.GetComponent<GameManager>().SenuelosJugados.Add(senuelo);
+                    deck1.GetComponent<Draw>().CardsInHand.Remove(senuelo);
+                    deck1.GetComponent<Draw>().CardsInHand.Add(CartaACambiar);
+                    senuelo.GetComponent<CartaEspecialDisplay>().card.CartaJugada = true;
+                    CartaACambiar.GetComponent<CardDisplay>().card.CambiadaPorSenuelo = true;
+                    GM.GetComponent<GameManager>().IsPlaying = true;
+                }
+                else
+                {
+                    Debug.Log("No hay cartas para sustituir disponibles");
+                }
+            }
+            else
+            {
+                Debug.Log("La carta ya esta jugada o no es tu turno");
+            }
+        }
+        else if(senuelo.GetComponent<CartaEspecialDisplay>().card.faccion == CartasEspeciales.Faccion.Demons)
+        {
+            if(GM.GetComponent<GameManager>().IsPlaying == true && senuelo.GetComponent<CartaEspecialDisplay>().card.CartaJugada == false)
+            {
+                GameObject CartaACambiar = FCMP(Melee_2, Ranged_2, Siege_2);
+                if(CartaACambiar != null)
+                {
+                    if(CartaACambiar.GetComponent<CardDisplay>().card.ataque == CardUnity.TipoDeAtaque.Melee)
+                {
+                    senuelo.transform.SetParent(M2.transform, false);
+                }
+                else if(CartaACambiar.GetComponent<CardDisplay>().card.ataque == CardUnity.TipoDeAtaque.Ranged)
+                {
+                    senuelo.transform.SetParent(R2.transform, false);
+                }
+                else if(CartaACambiar.GetComponent<CardDisplay>().card.ataque == CardUnity.TipoDeAtaque.Siege)
+                {
+                    senuelo.transform.SetParent(S2.transform, false);
+                }
+                CartaACambiar.transform.SetParent(Hand2.transform,false);
+                GM.GetComponent<GameManager>().SenuelosJugados.Add(senuelo);
+                deck2.GetComponent<Draw>().CardsInHand.Remove(senuelo);
+                deck2.GetComponent<Draw>().CardsInHand.Add(CartaACambiar);
+                senuelo.GetComponent<CartaEspecialDisplay>().card.CartaJugada = true;
+                CartaACambiar.GetComponent<CardDisplay>().card.CambiadaPorSenuelo = true;
+                GM.GetComponent<GameManager>().IsPlaying = false;
+                }
+                else
+                {
+                    Debug.Log("No hay cartas para sustituir disponibles");
+                }
+            } 
+            else
+            {
+                Debug.Log("La carta ya esta jugada o no es tu turno");
+            }
+        }  
+    }
+    public GameObject FCMP(List<GameObject> Melee, List<GameObject> Ranged, List<GameObject> Siege)//Metodo para encontrar la carta con mayor poder de plata del campo
+    {
+        int MayorPoder = 0;
+        foreach (GameObject Carta in Melee)
+        {
+            if((int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder > MayorPoder && Carta.GetComponent<CardDisplay>().card.categoria == CardUnity.Clasificacion.Plata)
+            {
+                MayorPoder = (int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
+                other = Carta;
+            }
+        }
+        foreach (GameObject Carta in Ranged )
+        {
+            if((int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder > MayorPoder && Carta.GetComponent<CardDisplay>().card.categoria == CardUnity.Clasificacion.Plata)
+            {
+                MayorPoder = (int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
+                other = Carta;
+            }
+        }
+        foreach (GameObject Carta in Siege)
+        {
+            if((int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder > MayorPoder && Carta.GetComponent<CardDisplay>().card.categoria == CardUnity.Clasificacion.Plata)
+            {
+                MayorPoder = (int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
+                other = Carta;
+            }
+        }
+        return other;
+    }
+    public void CartaDespeje(GameObject carta) // aqui chequeo q el efecto de la carta despeje se active solo cuando se pueda
     {
         if(carta.GetComponent<CartaEspecialDisplay>().card.faccion == CartasEspeciales.Faccion.Fairies)
         {

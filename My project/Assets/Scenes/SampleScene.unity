@@ -397,6 +397,7 @@ MonoBehaviour:
   - {fileID: 8025452247078265580, guid: ff626350c9b154d4cadb58d3f2d350fd, type: 3}
   - {fileID: 9042181799160007413, guid: 566266fe880120146856e90e57681743, type: 3}
   - {fileID: 906639376737201129, guid: 1126864b793723147a75dca06c85a172, type: 3}
+  - {fileID: 7148989599563998367, guid: 2ecf3fd669f57ba4eaa54fddabf1fb6a, type: 3}
   - {fileID: 7550000007357365550, guid: 9188bcbcccb488d40b600245ce394de6, type: 3}
 --- !u!114 &87386865
 MonoBehaviour:
@@ -941,6 +942,12 @@ MonoBehaviour:
   IsPlaying: 0
   J1CanPlay: 0
   J2CanPlay: 0
+  Change1: 0
+  Change2: 0
+  CantCartasCambiadas1: 0
+  CantCartasCambiadas2: 0
+  SENUELO1: {fileID: 6973378369085294100, guid: 36c106b9bc2f71b4fa9ee5d4e0274dad, type: 3}
+  SENUELO2: {fileID: 7148989599563998367, guid: 2ecf3fd669f57ba4eaa54fddabf1fb6a, type: 3}
   RondasGanadas1: {fileID: 925056837}
   RondasGanadas2: {fileID: 1377170951}
 --- !u!1 &564733243 stripped
@@ -4336,7 +4343,7 @@ PrefabInstance:
       objectReference: {fileID: 91699608}
     - target: {fileID: 3977755430597906231, guid: 8c347d1c204aa93458ba40793e9e0f07, type: 3}
       propertyPath: CardsInDeck.Array.size
-      value: 25
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: 3977755430597906231, guid: 8c347d1c204aa93458ba40793e9e0f07, type: 3}
       propertyPath: CardsInDeck.Array.data[7]
@@ -4413,7 +4420,7 @@ PrefabInstance:
     - target: {fileID: 3977755430597906231, guid: 8c347d1c204aa93458ba40793e9e0f07, type: 3}
       propertyPath: CardsInDeck.Array.data[25]
       value: 
-      objectReference: {fileID: 3941025015837836924, guid: cf50cda66ab4c1842ab8e3f3f2e0eabf, type: 3}
+      objectReference: {fileID: 6973378369085294100, guid: 36c106b9bc2f71b4fa9ee5d4e0274dad, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5346593634376389918, guid: 8c347d1c204aa93458ba40793e9e0f07, type: 3}

@@ -10,6 +10,12 @@ public class GameManager : MonoBehaviour
     public bool IsPlaying = false; //Si esta en false es el turno del jugador 1, si esta en true es el turno del jugador 2
     public bool J1CanPlay = false; // Mientras este en false, el jugador 1 puede jugar
     public bool J2CanPlay = false; // Mientras este en false, el jugador 2 puede jugar
+    // booleanos q indican si se puede o no cambiar una carta(solo es posible al iniciar el juego)
+    public bool Change1 = false; //Este es para el deck 1
+    public bool Change2 = false; //Este es para el deck 2
+    public List<GameObject> SenuelosJugados = new List<GameObject>();  
+    public int CantCartasCambiadas1 = 0;
+    public int CantCartasCambiadas2 = 0;
     GameObject deck1;
     GameObject deck2;
     GameObject Counter1;
@@ -58,6 +64,22 @@ public class GameManager : MonoBehaviour
         Metodos.GetComponent<Efectos>().EliminarCartas();
         Metodos.GetComponent<Efectos>().EliminarCartasAum();
         Metodos.GetComponent<Efectos>().EliminarCartasClima();
+        foreach (GameObject Carta in SenuelosJugados)
+        {
+            if(Carta.GetComponent<CartaEspecialDisplay>().card.faccion == CartasEspeciales.Faccion.Fairies)
+            {
+                Carta.transform.SetParent(Cementerio1.transform, false);
+                Cementerio1.GetComponent<Cementery>().DeadCards.Add(Carta);
+                Carta.GetComponent<CartaEspecialDisplay>().card.CartaJugada = false;
+            }
+            else if(Carta.GetComponent<CartaEspecialDisplay>().card.faccion == CartasEspeciales.Faccion.Demons)
+            {
+                Carta.transform.SetParent(Cementerio2.transform, false);
+                Cementerio2.GetComponent<Cementery>().DeadCards.Add(Carta);
+                Carta.GetComponent<CartaEspecialDisplay>().card.CartaJugada = false;
+            }
+        }
+        //Se define quien gano
         if(Counter1.GetComponent<Contador>().Sum > Counter2.GetComponent<Contador>().Sum)
         {
             Debug.Log("El jugador 1 gano la ronda");

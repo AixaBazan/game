@@ -100,6 +100,10 @@ PrefabInstance:
       propertyPath: CartaInfo
       value: 
       objectReference: {fileID: 11400000, guid: 8612c496352006c41b28599eb03b347d, type: 2}
+    - target: {fileID: 4238946376682578739, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: Card
+      value: 
+      objectReference: {fileID: 8081140412433149047}
     - target: {fileID: 5532543292581043088, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
       propertyPath: m_Name
       value: Carta (12) Variant

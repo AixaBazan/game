@@ -22,6 +22,7 @@ public class CardUnity : Card
     }
     public Sprite imagen;
     public bool CartaJugada = false;
+    public bool CambiadaPorSenuelo = false;
     public Sprite FONDO;
     public Faccion faccion;
     public int PoderOriginal;

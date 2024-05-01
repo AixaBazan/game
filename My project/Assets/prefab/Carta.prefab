@@ -326,7 +326,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f82819354b79bb940990159de8bfeebc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Zona: {fileID: 0}
   Cartica: {fileID: 0}
   CartaInfo: {fileID: 0}
 --- !u!114 &7010042074388068773

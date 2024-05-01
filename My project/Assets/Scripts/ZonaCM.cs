@@ -32,7 +32,7 @@ public class ZonaCM : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         carta = collision.gameObject;
-        
+        carta.GetComponent<CardDisplay>().card.CambiadaPorSenuelo = false;
         CardsInZone.Add(carta);
         if(carta.GetComponent<CardDisplay>().card.faccion == CardUnity.Faccion.Fairies)
         {
@@ -58,11 +58,11 @@ public class ZonaCM : MonoBehaviour
         carta = collision.gameObject;
         carta.GetComponent<CardDisplay>().card.PuntosDePoder = carta.GetComponent<CardDisplay>().card.PoderOriginal;
         carta.GetComponent<CardDisplay>().card.CartaJugada = false;
-        if(carta.GetComponent<CardDisplay>().card.faccion == CardUnity.Faccion.Fairies)
+        if(carta.GetComponent<CardDisplay>().card.faccion == CardUnity.Faccion.Fairies && carta.GetComponent<CardDisplay>().card.CambiadaPorSenuelo == false)
         {
             Cementerio1.GetComponent<Cementery>().DeadCards.Add(carta);
         }
-        else
+        else if(carta.GetComponent<CardDisplay>().card.faccion == CardUnity.Faccion.Demons && carta.GetComponent<CardDisplay>().card.CambiadaPorSenuelo == false)
         {
              Cementerio2.GetComponent<Cementery>().DeadCards.Add(carta);
         }

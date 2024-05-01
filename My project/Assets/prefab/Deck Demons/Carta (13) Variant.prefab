@@ -100,12 +100,20 @@ PrefabInstance:
       propertyPath: CartaInfo
       value: 
       objectReference: {fileID: 11400000, guid: dd176c721b0e84742adec9ab0d2d1903, type: 2}
+    - target: {fileID: 4238946376682578739, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: Card
+      value: 
+      objectReference: {fileID: 4066049233260378352}
     - target: {fileID: 5532543292581043088, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
       propertyPath: m_Name
       value: Carta (13) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
@@ -141,8 +149,12 @@ PrefabInstance:
       value: MoverCarta, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 4066049233260378352}
+    - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName

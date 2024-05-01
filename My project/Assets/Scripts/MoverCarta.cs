@@ -9,10 +9,14 @@ public class MoverCarta : MonoBehaviour
     public GameObject Cartica;
     public CardUnity CartaInfo;
     GameObject GM;
-    public void Clickear()
+    GameObject deck1;
+    void Update()
     {
         GM = GameObject.Find("GameManager");
-
+        
+    }
+    public void Clickear()
+    {  
         if(CartaInfo.ataque == CardUnity.TipoDeAtaque.Melee && CartaInfo.faccion == CardUnity.Faccion.Fairies)
         {
             if(GM.GetComponent<GameManager>().IsPlaying == false && CartaInfo.CartaJugada == false)
@@ -144,7 +148,8 @@ public class MoverCarta : MonoBehaviour
             {
                 Debug.Log("No es tu turno o esta carta ya esta en el campo");
             }
-        }
+       
+    }
     }
 }
 

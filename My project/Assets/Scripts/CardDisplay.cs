@@ -13,7 +13,6 @@ public class CardDisplay : MonoBehaviour
     public TMP_Text power;
     public TMP_Text tipo;
     public Image fondo;
-
     void Start()
     {
         nameText.text = card.nombre;

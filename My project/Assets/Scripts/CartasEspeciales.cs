@@ -13,7 +13,8 @@ public class CartasEspeciales : Card
         ZonaAumentoS1,
         ZonaAumentoM2,
         ZonaAumentoR2,
-        ZonaAumentoS2
+        ZonaAumentoS2,
+        ZonaSenuelo
 
     }
     public enum Faccion
