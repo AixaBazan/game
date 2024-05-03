@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: -7862805068889985719}
   - component: {fileID: 6433195090645180545}
   - component: {fileID: -6598360921460754198}
-  - component: {fileID: -7344194531076806111}
+  - component: {fileID: 6634753351801142221}
   m_Layer: 5
   m_Name: CartaEspecial
   m_TagString: Untagged
@@ -437,7 +437,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &-7344194531076806111
+--- !u!114 &6634753351801142221
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -446,7 +446,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1844225498685218461}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c4f97b1dd024f749b87e527618fdd11, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b45affb79d8dfc408e67455def15176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Card: {fileID: 0}

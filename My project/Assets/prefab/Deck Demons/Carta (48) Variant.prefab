@@ -129,31 +129,76 @@ PrefabInstance:
       value: Carta (48) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 196184618173576182}
+    - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 8813174931308883214}
     - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AsignacionPoderMult
+      objectReference: {fileID: 0}
+    - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: Clickear
       objectReference: {fileID: 0}
     - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Efectos, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: MoverCarta, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5532543292581043088, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 196184618173576182}
   m_SourcePrefab: {fileID: 100100000, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
 --- !u!1 &906639376737201129 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5532543292581043088, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
   m_PrefabInstance: {fileID: 4634922523774824569}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &196184618173576182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906639376737201129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9fb71c3b4833c3488be97e6d317a19b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PoderActivado1: 0
+  PoderActivado2: 0
 --- !u!114 &6343805101522414601 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -7468317989477819280, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}

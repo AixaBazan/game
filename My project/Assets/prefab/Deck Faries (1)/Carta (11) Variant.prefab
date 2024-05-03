@@ -129,25 +129,56 @@ PrefabInstance:
       value: Carta (11) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6865121466953734897}
+    - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 3190345138749631969}
     - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AsignacionPoderMult
+      objectReference: {fileID: 0}
+    - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: Clickear
       objectReference: {fileID: 0}
     - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Efectos, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: MoverCarta, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7010042074388068773, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5532543292581043088, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6865121466953734897}
   m_SourcePrefab: {fileID: 100100000, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
 --- !u!114 &1009216188591779046 stripped
 MonoBehaviour:
@@ -176,3 +207,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5532543292581043088, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
   m_PrefabInstance: {fileID: 1610670862897639574}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6865121466953734897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6529597489968229126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9fb71c3b4833c3488be97e6d317a19b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PoderActivado1: 0
+  PoderActivado2: 0

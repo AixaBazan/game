@@ -492,19 +492,28 @@ public class Efectos : MonoBehaviour
 
     // A continuacion se muestran los efectos de las cartas de unidad
     public void Stole(GameObject carta) //Este metodo activa el efecto de robar una carta del deck
-    //(Efecto disponible para las cartas del jugador 1)
     {
+        if(carta.GetComponent<CardDisplay>().card.faccion == CardUnity.Faccion.Fairies)
+        {
         if(GM.GetComponent<GameManager>().IsPlaying == false && carta.GetComponent<CardDisplay>().card.CartaJugada == false)
         {
-        int randomIndex = Random.Range(0, deck1.GetComponent<Draw>().CardsInDeck.Count);
-        GameObject drawCard = Instantiate(deck1.GetComponent<Draw>().CardsInDeck[randomIndex], new Vector3(0, 0, 0), Quaternion.identity);
-        drawCard.transform.SetParent(Hand1.transform, false);
-        deck1.GetComponent<Draw>().CardsInHand.Add(drawCard);
-        deck1.GetComponent<Draw>().CardsInDeck.RemoveAt(randomIndex);
+        deck1.GetComponent<Draw>().OnClick();
         }
         else
         {
             Debug.Log("No se puede activar el efecto");
+        }
+        }
+        else
+        {
+            if(GM.GetComponent<GameManager>().IsPlaying == true && carta.GetComponent<CardDisplay>().card.CartaJugada == false)
+            {
+            deck2.GetComponent<Draw>().OnClick();
+            }
+            else
+            {
+                Debug.Log("No se puede activar el efecto");
+            }
         }   
     }
     public void Delete(GameObject Carta)  //Este metodo activa el efecto de eliminar la carta con mayor poder del rival
@@ -547,7 +556,7 @@ public class Efectos : MonoBehaviour
         }
     }
 
-    public void DeleteMenorP(GameObject Carta)  //Este metodo activa el efecto de eliminar la carta con menos poder del rival
+    public void DeleteMenorP(GameObject Carta)  //Este metodo activa el efecto de eliminar la carta con menor poder del rival
     {
         if(Carta.GetComponent<CardDisplay>().card.faccion == CardUnity.Faccion.Fairies)
         {
@@ -722,5 +731,130 @@ public class Efectos : MonoBehaviour
         }
 
     return other;
+    }
+
+    //Este metodo chequea cuando se puede activar el efecto promedio
+    // y se lo asigna a la carta segun su faccion
+    public void AsignacionPoderPromedio(GameObject Carta)
+    {
+        if(Carta.GetComponent<CardDisplay>().card.faccion == CardUnity.Faccion.Fairies)
+        {
+            if(GM.GetComponent<GameManager>().IsPlaying == false && Carta.GetComponent<CardDisplay>().card.CartaJugada == false)
+            {
+                promedio(Melee_1, Ranged_1, Siege_1);
+            }
+            else
+            {
+                Debug.Log("No se puede activar el efecto");
+            }  
+        }
+        else if(Carta.GetComponent<CardDisplay>().card.faccion == CardUnity.Faccion.Demons)
+        {
+            if(GM.GetComponent<GameManager>().IsPlaying == true && Carta.GetComponent<CardDisplay>().card.CartaJugada == false)
+            {
+                promedio(Melee_2, Ranged_2, Siege_2);
+            }
+            else
+            {
+                Debug.Log("No se puede activar el efecto");
+            }
+        }
+    }
+    //Este efecto calcula el promedio de poder entre todas las cartas del campo propio
+    //Luego iguala el poder de todas las cartas a ese promedio.
+    public void promedio(List<GameObject> Melee, List<GameObject> Ranged, List<GameObject> Siege) 
+    {
+        int suma = 0;
+        int cantCartas = Melee.Count + Ranged.Count + Siege.Count;
+        foreach (GameObject Carta in Melee)
+        {
+            suma += Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
+        }
+        foreach (GameObject Carta in Ranged)
+        {
+            suma += Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
+        }
+        foreach (GameObject Carta in Siege)
+        {
+         suma += Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
+        }
+        int promedio = suma / cantCartas;
+        Debug.Log(promedio);
+        foreach (GameObject Carta in Melee)
+        {
+            Carta.GetComponent<CardDisplay>().card.PuntosDePoder = promedio;
+        }
+        foreach (GameObject Carta in Ranged)
+        {
+            Carta.GetComponent<CardDisplay>().card.PuntosDePoder = promedio;
+        }
+        foreach (GameObject Carta in Siege)
+        {
+        Carta.GetComponent<CardDisplay>().card.PuntosDePoder = promedio;
+        }
     } 
+
+    //Este metodo chequea cuando se puede activar el efecto mult
+    // y se lo asigna a la carta segun su faccion
+    public void AsignacionPoderMult()
+    {
+        if(this.gameObject.GetComponent<CardDisplay>().card.faccion == CardUnity.Faccion.Fairies)
+        {
+            if(GM.GetComponent<GameManager>().IsPlaying == false && this.gameObject.GetComponent<CardDisplay>().card.CartaJugada == false)
+            {
+                Mult(this.gameObject, Melee_1, Ranged_1, Siege_1);
+            }
+            else
+            {
+                Debug.Log("No se puede activar el efecto");
+            }  
+        }
+        else if(this.gameObject.GetComponent<CardDisplay>().card.faccion == CardUnity.Faccion.Demons)
+        {
+            if(GM.GetComponent<GameManager>().IsPlaying == true && this.gameObject.GetComponent<CardDisplay>().card.CartaJugada == false)
+            {
+                Mult(this.gameObject, Melee_2, Ranged_2, Siege_2);
+            }
+            else
+            {
+                Debug.Log("No se puede activar el efecto");
+            }
+        }
+    }
+    //Multiplica por n su ataque, siendo n la cantidad de cartas iguales a ella en el campo
+    public void Mult(GameObject Carta,List<GameObject> Melee, List<GameObject> Ranged, List<GameObject> Siege)
+    {
+        int n = 1;
+        if(Carta.GetComponent<CardDisplay>().card.ataque == CardUnity.TipoDeAtaque.Melee)
+        {
+        foreach (GameObject carta in Melee)
+        {
+            if(carta.GetComponent<CardDisplay>().card.nombre == Carta.GetComponent<CardDisplay>().card.nombre)
+            {
+                n++;
+            }
+        }
+        }
+        else if(Carta.GetComponent<CardDisplay>().card.ataque == CardUnity.TipoDeAtaque.Ranged)
+        {
+        foreach (GameObject carta in Ranged)
+        {
+            if(carta.GetComponent<CardDisplay>().card.nombre == Carta.GetComponent<CardDisplay>().card.nombre)
+            {
+                n++;
+            }
+        }
+        }
+        else  if(Carta.GetComponent<CardDisplay>().card.ataque == CardUnity.TipoDeAtaque.Ranged)
+        {
+        foreach (GameObject carta in Ranged)
+        {
+            if(carta.GetComponent<CardDisplay>().card.nombre == Carta.GetComponent<CardDisplay>().card.nombre)
+            {
+                n++;
+            }
+        }
+        }
+        Carta.GetComponent<CardDisplay>().card.PuntosDePoder = n * Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
+    }
 }
