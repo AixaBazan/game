@@ -19,6 +19,7 @@ public class MoverCarta : MonoBehaviour
     {  
         if(CartaInfo.ataque == CardUnity.TipoDeAtaque.Melee && CartaInfo.faccion == CardUnity.Faccion.Fairies)
         {
+            GM.GetComponent<GameManager>().Change1 = true;
             if(GM.GetComponent<GameManager>().IsPlaying == false && CartaInfo.CartaJugada == false)
             {
             Zona = GameObject.Find("Melee1");
@@ -41,6 +42,7 @@ public class MoverCarta : MonoBehaviour
         }
         else if(CartaInfo.ataque == CardUnity.TipoDeAtaque.Ranged && CartaInfo.faccion == CardUnity.Faccion.Fairies )
         {
+            GM.GetComponent<GameManager>().Change1 = true;
             if(GM.GetComponent<GameManager>().IsPlaying == false && CartaInfo.CartaJugada == false)
             {
             Zona = GameObject.Find("Ranged1");
@@ -63,6 +65,7 @@ public class MoverCarta : MonoBehaviour
         }
         else if(CartaInfo.ataque == CardUnity.TipoDeAtaque.Siege && CartaInfo.faccion == CardUnity.Faccion.Fairies)
         {
+            GM.GetComponent<GameManager>().Change1 = true;
             if(GM.GetComponent<GameManager>().IsPlaying == false && CartaInfo.CartaJugada == false)
             {
             Zona = GameObject.Find("Siege1");
@@ -85,6 +88,7 @@ public class MoverCarta : MonoBehaviour
         }
         else if(CartaInfo.ataque == CardUnity.TipoDeAtaque.Melee && CartaInfo.faccion == CardUnity.Faccion.Demons )
         {
+             GM.GetComponent<GameManager>().Change2 = true;
             if(GM.GetComponent<GameManager>().IsPlaying == true && CartaInfo.CartaJugada == false)
             {
             Zona = GameObject.Find("Melee2");
@@ -107,6 +111,7 @@ public class MoverCarta : MonoBehaviour
         }
         else if(CartaInfo.ataque == CardUnity.TipoDeAtaque.Ranged && CartaInfo.faccion == CardUnity.Faccion.Demons )
         {
+             GM.GetComponent<GameManager>().Change2 = true;
             if(GM.GetComponent<GameManager>().IsPlaying == true && CartaInfo.CartaJugada == false)
             {
             Zona = GameObject.Find("Ranged2");
@@ -129,6 +134,7 @@ public class MoverCarta : MonoBehaviour
         }
         else if(CartaInfo.ataque == CardUnity.TipoDeAtaque.Siege && CartaInfo.faccion == CardUnity.Faccion.Demons )
         {
+             GM.GetComponent<GameManager>().Change2 = true;
             if(GM.GetComponent<GameManager>().IsPlaying == true && CartaInfo.CartaJugada == false)
             {
             Zona = GameObject.Find("Siege2");

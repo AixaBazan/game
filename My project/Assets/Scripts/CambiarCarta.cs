@@ -9,12 +9,13 @@ public class CambiarCarta : MonoBehaviour
     GameObject deck1;
     GameObject deck2;
 
-    public void Change(GameObject Card)
+    public void Change()
     {   
         GM = GameObject.Find("GameManager"); 
         deck1 = GameObject.Find("Deck1");
         deck2 = GameObject.Find("Deck2");
-
+        if(Input.GetMouseButtonUp(1))
+        {
         if(Card.GetComponent<CardDisplay>().card.faccion == CardUnity.Faccion.Fairies)
             {
                 if(GM.GetComponent<GameManager>().Change1 == false)
@@ -55,5 +56,6 @@ public class CambiarCarta : MonoBehaviour
                 Debug.Log("No se puede cambiar la carta");
             }
         }
-    }   
+    } 
+    }
 }

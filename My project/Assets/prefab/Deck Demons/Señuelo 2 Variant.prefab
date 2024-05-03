@@ -146,6 +146,26 @@ PrefabInstance:
       propertyPath: card
       value: 
       objectReference: {fileID: 11400000, guid: 7f90e6e5cc03cde408be710b6a5297b1, type: 2}
+    - target: {fileID: -7344194531076806111, guid: 99f1607a55a57c84a9f08ede37f545f9, type: 3}
+      propertyPath: Card
+      value: 
+      objectReference: {fileID: 7148989599563998367}
+    - target: {fileID: -6598360921460754198, guid: 99f1607a55a57c84a9f08ede37f545f9, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6970020280289464355}
+    - target: {fileID: -6598360921460754198, guid: 99f1607a55a57c84a9f08ede37f545f9, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Change
+      objectReference: {fileID: 0}
+    - target: {fileID: -6598360921460754198, guid: 99f1607a55a57c84a9f08ede37f545f9, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CambiarCarta, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: -6598360921460754198, guid: 99f1607a55a57c84a9f08ede37f545f9, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 236513178523518207, guid: 99f1607a55a57c84a9f08ede37f545f9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -282,6 +302,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a9fb71c3b4833c3488be97e6d317a19b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6970020280289464355 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -7344194531076806111, guid: 99f1607a55a57c84a9f08ede37f545f9, type: 3}
+  m_PrefabInstance: {fileID: 8840092694784047618}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7148989599563998367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c4f97b1dd024f749b87e527618fdd11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7148989599563998367 stripped
