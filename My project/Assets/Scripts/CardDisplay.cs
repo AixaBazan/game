@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro; 
+using TMPro;
+using Unity.VisualScripting;
 
 public class CardDisplay : MonoBehaviour
 {
@@ -22,5 +23,8 @@ public class CardDisplay : MonoBehaviour
         tipo.text = card.ataque.ToString();
         fondo.sprite = card.FONDO;
     }
-   
+    void Update()
+    {
+        power.text = card.PuntosDePoder.ToString();
+    }
 }

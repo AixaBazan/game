@@ -11,11 +11,11 @@ public class GameManager : MonoBehaviour
     public bool J1CanPlay = false; // Mientras este en false, el jugador 1 puede jugar
     public bool J2CanPlay = false; // Mientras este en false, el jugador 2 puede jugar
     // booleanos q indican si se puede o no cambiar una carta(solo es posible al iniciar el juego)
-    public bool Change1 = false; //Este es para el deck 1
-    public bool Change2 = false; //Este es para el deck 2
+    public bool Change1 = false; //Este booleno indica si se puede cambiar la carta del jugador 1 (si esta en false se puede)
+    public bool Change2 = false; //Este booleno indica si se puede cambiar la carta del jugador 2 (si esta en false se puede)
     public List<GameObject> SenuelosJugados = new List<GameObject>();  
-    public int CantCartasCambiadas1 = 0;
-    public int CantCartasCambiadas2 = 0;
+    public int CantCartasCambiadas1 = 0; //Lleva la cuenta d cuantas cartas se ha cambiado el jugador 1
+    public int CantCartasCambiadas2 = 0; //Lleva la cuenta de cuantas cartas ha cambiado el jugador 2
     GameObject deck1;
     GameObject deck2;
     GameObject Counter1;

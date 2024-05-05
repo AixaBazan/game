@@ -113,15 +113,47 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6327067105128470909}
     - target: {fileID: 4987275195262726837, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4824122980627815995}
+    - target: {fileID: 4987275195262726837, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4824122980627815995}
+    - target: {fileID: 4987275195262726837, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Change
+      objectReference: {fileID: 0}
+    - target: {fileID: 4987275195262726837, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMouseEnter
+      objectReference: {fileID: 0}
+    - target: {fileID: 4987275195262726837, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMouseExit
       objectReference: {fileID: 0}
     - target: {fileID: 4987275195262726837, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: CambiarCarta, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4987275195262726837, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Zoom, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4987275195262726837, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Zoom, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4987275195262726837, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4987275195262726837, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4987275195262726837, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5532543292581043088, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
@@ -154,6 +186,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5532543292581043088, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
   m_PrefabInstance: {fileID: 5734619829323564301}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4824122980627815995 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -8257407008213263562, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}
+  m_PrefabInstance: {fileID: 5734619829323564301}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239531451957993117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd27a4f43e08c0445860b23b6e5d4b14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6327067105128470909 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -7468317989477819280, guid: 23b11d261de62c849bcb090cf5f89976, type: 3}

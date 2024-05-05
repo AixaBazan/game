@@ -126,6 +126,7 @@ public class Efectos : MonoBehaviour
         {
             if(PoderActivado1 == false)
             {
+                GM.GetComponent<GameManager>().Change1 = true;
                 Debug.Log("La carta lider 1 activo su habilidad");
                 HL1();
                 GM.GetComponent<GameManager>().IsPlaying = true;
@@ -203,6 +204,7 @@ public class Efectos : MonoBehaviour
         {
             if (PoderActivado2 == false)
             {
+                GM.GetComponent<GameManager>().Change1 = true;
                 Debug.Log("La carta lider 2 activo su habilidad");
                 HL2();
                 GM.GetComponent<GameManager>().IsPlaying = false;
