@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: 12
   m_EditorClassIdentifier: 
   nombre: Morgana
-  descripcion: oro
+  descripcion: Elimina la carta con mayor poder del rival ORO
   ID: 12
   imagen: {fileID: 21300000, guid: 3265709d9478b524096ee15ea1965853, type: 3}
   CartaJugada: 0
+  CambiadaPorSenuelo: 0
   FONDO: {fileID: 21300000, guid: 0e5fcbd9772110448b9fe79418957925, type: 3}
   faccion: 1
   PoderOriginal: 10

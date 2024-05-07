@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: 3
   m_EditorClassIdentifier: 
   nombre: Celeste
-  descripcion: oro
+  descripcion: Elimina la carta con mayor poder del rival ORO
   ID: 3
   imagen: {fileID: 21300000, guid: 9b1d405a7cfaa874091c8efdab796180, type: 3}
   CartaJugada: 0
+  CambiadaPorSenuelo: 0
   FONDO: {fileID: 21300000, guid: 901c8e31945582f44842c75bf34122a1, type: 3}
   faccion: 0
   PoderOriginal: 7

@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: 16
   m_EditorClassIdentifier: 
   nombre: Erebos
-  descripcion: oro
+  descripcion: Iguala el poder de las cartas al promedio ORO
   ID: 16
   imagen: {fileID: 21300000, guid: 5ba48734e69763142bb91d3373fc5280, type: 3}
   CartaJugada: 0
+  CambiadaPorSenuelo: 0
   FONDO: {fileID: 21300000, guid: 0e5fcbd9772110448b9fe79418957925, type: 3}
   faccion: 1
   PoderOriginal: 5

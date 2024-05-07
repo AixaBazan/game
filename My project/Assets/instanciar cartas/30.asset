@@ -20,3 +20,4 @@ MonoBehaviour:
   faccion: 1
   imagen: {fileID: 21300000, guid: 823da17b87511f74f8a2eaa0949708a3, type: 3}
   FONDO: {fileID: 21300000, guid: 0e5fcbd9772110448b9fe79418957925, type: 3}
+  CartaJugada: 0

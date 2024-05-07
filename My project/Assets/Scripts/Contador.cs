@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+//Lleva el contador de los puntos
 public class Contador : MonoBehaviour
 {
     public TMP_Text ContadorTotal;

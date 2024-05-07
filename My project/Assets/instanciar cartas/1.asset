@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: 1
   m_EditorClassIdentifier: 
   nombre: Lirio
-  descripcion: oro
+  descripcion: Roba una carta del deck ORO
   ID: 1
   imagen: {fileID: 21300000, guid: a0e6555ec6e7b9e438c5a822c0b3ca5f, type: 3}
   CartaJugada: 0
+  CambiadaPorSenuelo: 0
   FONDO: {fileID: 21300000, guid: 901c8e31945582f44842c75bf34122a1, type: 3}
   faccion: 0
   PoderOriginal: 9

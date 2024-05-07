@@ -68,13 +68,13 @@ public class GameManager : MonoBehaviour
         {
             if(Carta.GetComponent<CartaEspecialDisplay>().card.faccion == CartasEspeciales.Faccion.Fairies)
             {
-                Carta.transform.SetParent(Cementerio1.transform, false);
+                Carta.SetActive(false);
                 Cementerio1.GetComponent<Cementery>().DeadCards.Add(Carta);
                 Carta.GetComponent<CartaEspecialDisplay>().card.CartaJugada = false;
             }
             else if(Carta.GetComponent<CartaEspecialDisplay>().card.faccion == CartasEspeciales.Faccion.Demons)
             {
-                Carta.transform.SetParent(Cementerio2.transform, false);
+                Carta.SetActive(false);
                 Cementerio2.GetComponent<Cementery>().DeadCards.Add(Carta);
                 Carta.GetComponent<CartaEspecialDisplay>().card.CartaJugada = false;
             }
@@ -138,6 +138,7 @@ public class GameManager : MonoBehaviour
                 card.transform.SetParent(Cementerio1.transform, false);
                 Cementerio1.GetComponent<Cementery>().DeadCards.Add(card);
                 deck1.GetComponent<Draw>().CardsInHand.Remove(card);
+                card.GetComponent<CardDisplay>().card.CartaJugada = true;
             }
         }
         //El jugador 2 roba dos cartas
@@ -159,6 +160,7 @@ public class GameManager : MonoBehaviour
                 card.transform.SetParent(Cementerio2.transform, false);
                 Cementerio2.GetComponent<Cementery>().DeadCards.Add(card);
                 deck2.GetComponent<Draw>().CardsInHand.Remove(card);
+                card.GetComponent<CardDisplay>().card.CartaJugada = true;
             }
         }
 
@@ -180,10 +182,37 @@ public class GameManager : MonoBehaviour
     }
     public void Player1Win()
     {
+        RestaurarBooleano();
         SceneManager.LoadScene("Player1");
     }
     public void Player2Win()
     {
+        RestaurarBooleano();
         SceneManager.LoadScene("Player2");
+    }
+    public void RestaurarBooleano() //Pone en false el booleano de la carta jugada para las nuevas partidas
+    {
+        foreach (GameObject card in Cementerio1.GetComponent<Cementery>().DeadCards)
+        {
+            if(card.CompareTag("Carta"))
+            {
+                card.GetComponent<CardDisplay>().card.CartaJugada = false;
+            }
+            else if(card.CompareTag("CartaEspecial"))
+            {
+                card.GetComponent<CartaEspecialDisplay>().card.CartaJugada = false;
+            }
+        }
+        foreach (GameObject card in Cementerio2.GetComponent<Cementery>().DeadCards)
+        {
+            if(card.CompareTag("Carta"))
+            {
+                card.GetComponent<CardDisplay>().card.CartaJugada = false;
+            }
+            else if(card.CompareTag("CartaEspecial"))
+            {
+                card.GetComponent<CartaEspecialDisplay>().card.CartaJugada = false;
+            }
+        }
     }
 }

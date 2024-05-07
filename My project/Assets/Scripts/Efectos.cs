@@ -146,34 +146,49 @@ public class Efectos : MonoBehaviour
     {
         List <GameObject> CartasMayorPoder = new List<GameObject>();
         int MayorPoder = 0;
+        GameObject CartaMelee = null;
         int MayorPoder1 = 0;
+        GameObject CartaRanged = null;
         int MayorPoder2 = 0;
+        GameObject CartaSiege = null;
         
         foreach (GameObject Carta in Melee_2)
         {
-            if((int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder > MayorPoder)
+            if(Carta.GetComponent<CardDisplay>().card.PuntosDePoder > MayorPoder)
             {
-                MayorPoder = (int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
-                CartasMayorPoder.Add(Carta);
+                MayorPoder = Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
+                CartaMelee = Carta;
             }
         }
         foreach (GameObject Carta in Ranged_2)
         {
-            if((int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder > MayorPoder1)
+            if(Carta.GetComponent<CardDisplay>().card.PuntosDePoder > MayorPoder1)
             {
-                MayorPoder1 = (int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
-                CartasMayorPoder.Add(Carta);
+                MayorPoder1 = Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
+                CartaRanged = Carta;
             }
         }
         foreach (GameObject Carta in Siege_2)
         {
-            if((int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder > MayorPoder2)
+            if(Carta.GetComponent<CardDisplay>().card.PuntosDePoder > MayorPoder2)
             {
-                MayorPoder2 = (int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
-                CartasMayorPoder.Add(Carta);
+                MayorPoder2 = Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
+                CartaSiege = Carta;
             }
         }
-        
+        if(CartaRanged != null)
+        {
+            CartasMayorPoder.Add(CartaRanged);
+        }
+        if(CartaSiege != null)
+        {
+            CartasMayorPoder.Add(CartaSiege);
+        }
+        if(CartaMelee != null)
+        {
+            CartasMayorPoder.Add(CartaMelee);
+        }
+        Debug.Log(CartasMayorPoder.Count);
         foreach(GameObject Carta in CartasMayorPoder)
         {
             Carta.transform.SetParent(Cementerio1.transform, false);
@@ -766,6 +781,8 @@ public class Efectos : MonoBehaviour
     //Luego iguala el poder de todas las cartas a ese promedio.
     public void promedio(List<GameObject> Melee, List<GameObject> Ranged, List<GameObject> Siege) 
     {
+        if(Melee.Count != 0 || Ranged.Count != 0 || Siege.Count != 0)
+        {
         int suma = 0;
         int cantCartas = Melee.Count + Ranged.Count + Siege.Count;
         foreach (GameObject Carta in Melee)
@@ -793,6 +810,11 @@ public class Efectos : MonoBehaviour
         foreach (GameObject Carta in Siege)
         {
         Carta.GetComponent<CardDisplay>().card.PuntosDePoder = promedio;
+        }
+        }
+        else
+        {
+            return;
         }
     } 
 
@@ -833,6 +855,7 @@ public class Efectos : MonoBehaviour
         {
             if(carta.GetComponent<CardDisplay>().card.nombre == Carta.GetComponent<CardDisplay>().card.nombre)
             {
+                Debug.Log("Se encontro una carta igual");
                 n++;
             }
         }
@@ -843,16 +866,18 @@ public class Efectos : MonoBehaviour
         {
             if(carta.GetComponent<CardDisplay>().card.nombre == Carta.GetComponent<CardDisplay>().card.nombre)
             {
+                Debug.Log("Se encontro una carta igual");
                 n++;
             }
         }
         }
-        else  if(Carta.GetComponent<CardDisplay>().card.ataque == CardUnity.TipoDeAtaque.Ranged)
+        else  if(Carta.GetComponent<CardDisplay>().card.ataque == CardUnity.TipoDeAtaque.Siege)
         {
-        foreach (GameObject carta in Ranged)
+        foreach (GameObject carta in Siege)
         {
             if(carta.GetComponent<CardDisplay>().card.nombre == Carta.GetComponent<CardDisplay>().card.nombre)
             {
+                Debug.Log("Se encontro una carta igual");
                 n++;
             }
         }

@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: 15
   m_EditorClassIdentifier: 
   nombre: Umbra
-  descripcion: oro
+  descripcion: Elimina la carta con menor poder del rival ORO
   ID: 15
   imagen: {fileID: 21300000, guid: f8f07a5dbda83764a9ede17c8b692fdd, type: 3}
+  CartaJugada: 0
+  CambiadaPorSenuelo: 0
   FONDO: {fileID: 21300000, guid: 0e5fcbd9772110448b9fe79418957925, type: 3}
   faccion: 1
   PoderOriginal: 4

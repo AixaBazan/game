@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: 44
   m_EditorClassIdentifier: 
   nombre: Sombra
-  descripcion: plata
+  descripcion: Mult por n su ataque PLATA
   ID: 44
   imagen: {fileID: 21300000, guid: 6a0b977a27e44ae4eb010fc1105bd196, type: 3}
   CartaJugada: 0
+  CambiadaPorSenuelo: 0
   FONDO: {fileID: 21300000, guid: 0e5fcbd9772110448b9fe79418957925, type: 3}
   faccion: 1
   PoderOriginal: 6

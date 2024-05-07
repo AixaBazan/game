@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: 14
   m_EditorClassIdentifier: 
   nombre: Bael
-  descripcion: oro
+  descripcion: Roba una carta del deck ORO
   ID: 14
   imagen: {fileID: 21300000, guid: f20b43ee139bb8d42936802a158f080f, type: 3}
+  CartaJugada: 0
+  CambiadaPorSenuelo: 0
   FONDO: {fileID: 21300000, guid: 0e5fcbd9772110448b9fe79418957925, type: 3}
   faccion: 1
   PoderOriginal: 9

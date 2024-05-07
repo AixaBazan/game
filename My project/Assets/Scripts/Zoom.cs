@@ -1,27 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Script q se encarga de hacerle zoom a las cartas 
 public class Zoom : MonoBehaviour
 {
-    GameObject canvas;
+    GameObject UbZoom;
     private GameObject zoomCard;
     private Vector2 zoomScale = new Vector2(3, 3);
     public void Awake()
     {
-        canvas = GameObject.Find("Canvas");
+        UbZoom = GameObject.Find("UbicarZoom");
     }
     public void OnMouseEnter()
     {
-        zoomCard = Instantiate(gameObject, new Vector2(280, 280), Quaternion.identity);
+        zoomCard = Instantiate(gameObject, new Vector2(160, 890), Quaternion.identity);
 
-        zoomCard.transform.SetParent(canvas.transform, false);
+        zoomCard.transform.SetParent(UbZoom.transform);
 
         zoomCard.transform.localScale = zoomScale;
     }
     public void OnMouseExit()
     {
-        Destroy(zoomCard);
+       Destroy(zoomCard);
     }
 }
 

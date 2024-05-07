@@ -35,7 +35,6 @@ public class ZonaClima : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         carta = collision.gameObject;
-        carta.GetComponent<CartaEspecialDisplay>().card.CartaJugada = false;
         if(carta.GetComponent<CartaEspecialDisplay>().card.faccion == CartasEspeciales.Faccion.Fairies)
         {
             Cementerio1.GetComponent<Cementery>().DeadCards.Add(carta);

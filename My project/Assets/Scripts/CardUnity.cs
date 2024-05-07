@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//  Propiedades de las cartas de unidad
 [CreateAssetMenu(fileName = "New CardUnity", menuName = "UnityCard")]
 public class CardUnity : Card
 {

@@ -9,16 +9,15 @@ public class Draw : MonoBehaviour
     public List<GameObject> CardsInHand;
     public List<GameObject> CardsInDeck;
 
-    void Start()
+    void Start() //Al inicio del juego cada jugador roba dos cartas
     {
-
         for(int i = 0; i < 10; i++)
         {
             OnClick();
         } 
     }
 
-    public void OnClick()
+    public void OnClick() //Metodo q permiter robar una carta del deck
     {
         int randomIndex = Random.Range(0, CardsInDeck.Count);
         GameObject drawCard = Instantiate(CardsInDeck[randomIndex], new Vector3(0, 0, 0), Quaternion.identity);

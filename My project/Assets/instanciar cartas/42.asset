@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: 42
   m_EditorClassIdentifier: 
   nombre: Ander
-  descripcion: plata
+  descripcion: Mult por n su ataque PLATA
   ID: 42
   imagen: {fileID: 21300000, guid: ac5f964fc052906468a49458d0c2b782, type: 3}
-  EfectoActivado: 0
+  CartaJugada: 0
+  CambiadaPorSenuelo: 0
   FONDO: {fileID: 21300000, guid: 901c8e31945582f44842c75bf34122a1, type: 3}
   faccion: 0
   PoderOriginal: 5

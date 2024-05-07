@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: 47
   m_EditorClassIdentifier: 
   nombre: Astaroth
-  descripcion: plata
+  descripcion: Mult por n su ataque PLATA
   ID: 47
   imagen: {fileID: 21300000, guid: 72bf673d0c151014cba18cde2952cc35, type: 3}
-  EfectoActivado: 0
+  CartaJugada: 0
+  CambiadaPorSenuelo: 0
   FONDO: {fileID: 21300000, guid: 0e5fcbd9772110448b9fe79418957925, type: 3}
   faccion: 1
   PoderOriginal: 7

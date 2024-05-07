@@ -16,7 +16,8 @@ MonoBehaviour:
   descripcion: oro
   ID: 17
   imagen: {fileID: 21300000, guid: ced160344679c4b488ff4ffc7f3070dd, type: 3}
-  EfectoActivado: 0
+  CartaJugada: 0
+  CambiadaPorSenuelo: 0
   FONDO: {fileID: 21300000, guid: 0e5fcbd9772110448b9fe79418957925, type: 3}
   faccion: 1
   PoderOriginal: 10

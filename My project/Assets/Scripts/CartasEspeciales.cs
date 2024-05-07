@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Propiedades de las cartas especiales
 [CreateAssetMenu(fileName = "New CartasEspeciales", menuName = "CartasEspeciales")]
 public class CartasEspeciales : Card
 {

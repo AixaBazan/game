@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: 6
   m_EditorClassIdentifier: 
   nombre: Zafiro
-  descripcion: plata
+  descripcion: Mult por n su ataque PLATA
   ID: 6
   imagen: {fileID: 21300000, guid: 9265fef18adc02c4da4cd99e7502bdf9, type: 3}
   CartaJugada: 0
+  CambiadaPorSenuelo: 0
   FONDO: {fileID: 21300000, guid: 901c8e31945582f44842c75bf34122a1, type: 3}
   faccion: 0
   PoderOriginal: 7

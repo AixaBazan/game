@@ -57,7 +57,6 @@ public class ZonaCM : MonoBehaviour
     {
         carta = collision.gameObject;
         carta.GetComponent<CardDisplay>().card.PuntosDePoder = carta.GetComponent<CardDisplay>().card.PoderOriginal;
-        carta.GetComponent<CardDisplay>().card.CartaJugada = false;
         if(carta.GetComponent<CardDisplay>().card.faccion == CardUnity.Faccion.Fairies && carta.GetComponent<CardDisplay>().card.CambiadaPorSenuelo == false)
         {
             Cementerio1.GetComponent<Cementery>().DeadCards.Add(carta);

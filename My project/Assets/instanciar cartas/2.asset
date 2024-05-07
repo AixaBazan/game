@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: 2
   m_EditorClassIdentifier: 
   nombre: Juliano
-  descripcion: El mas tanke de todas las hadas oro
+  descripcion: Elimina la carta con menor poder del rival ORO
   ID: 2
   imagen: {fileID: 21300000, guid: 7762ee201de3bf4488d86f681ffcc9e0, type: 3}
   CartaJugada: 0
+  CambiadaPorSenuelo: 0
   FONDO: {fileID: 21300000, guid: 901c8e31945582f44842c75bf34122a1, type: 3}
   faccion: 0
   PoderOriginal: 6

@@ -16,7 +16,8 @@ MonoBehaviour:
   descripcion: plata
   ID: 23
   imagen: {fileID: 21300000, guid: 57e31f2a2b59003409cfc8bb83d70253, type: 3}
-  EfectoActivado: 0
+  CartaJugada: 0
+  CambiadaPorSenuelo: 0
   FONDO: {fileID: 21300000, guid: 0e5fcbd9772110448b9fe79418957925, type: 3}
   faccion: 1
   PoderOriginal: 8
