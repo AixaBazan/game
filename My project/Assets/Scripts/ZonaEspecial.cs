@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZonaClima : MonoBehaviour
+public class ZonaEspecial : MonoBehaviour
 {
     public List<GameObject> CardsInZone = new List<GameObject>();
     GameObject carta;

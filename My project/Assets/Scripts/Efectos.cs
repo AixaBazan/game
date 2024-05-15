@@ -56,7 +56,7 @@ public class Efectos : MonoBehaviour
         Melee_2 = M2.GetComponent<ZonaCM>().CardsInZone;
         Ranged_2 = R2.GetComponent<ZonaCM>().CardsInZone;
         Siege_2 = S2.GetComponent<ZonaCM>().CardsInZone;
-        ClimasJugados = ZonaClima.GetComponent<ZonaClima>().CardsInZone;
+        ClimasJugados = ZonaClima.GetComponent<ZonaEspecial>().CardsInZone;
     }
 
     //A continuacion aparecen los metodos que uso cuando se acaba la ronda
@@ -89,7 +89,7 @@ public class Efectos : MonoBehaviour
     }
     public void EliminarCartasAum() //Este metodo envia al cementerio todas las cartas aumento que se encuentren en el campo
     {
-        foreach (GameObject carta in zonaAumento.GetComponent<ZonaAumento>().CardsInZone)
+        foreach (GameObject carta in zonaAumento.GetComponent<ZonaEspecial>().CardsInZone)
         {
             //Verifico de que faccion es cada carta para enviarla a su respectivo cementerio
             if(carta.GetComponent<CartaEspecialDisplay>().card.faccion == CartasEspeciales.Faccion.Fairies)
@@ -264,6 +264,7 @@ public class Efectos : MonoBehaviour
                     deck1.GetComponent<Draw>().CardsInHand.Add(CartaACambiar);
                     senuelo.GetComponent<CartaEspecialDisplay>().card.CartaJugada = true;
                     CartaACambiar.GetComponent<CardDisplay>().card.CambiadaPorSenuelo = true;
+                    CartaACambiar.GetComponent<CardDisplay>().card.CartaJugada = false;
                     GM.GetComponent<GameManager>().IsPlaying = true;
                 }
                 else
@@ -301,6 +302,7 @@ public class Efectos : MonoBehaviour
                 deck2.GetComponent<Draw>().CardsInHand.Add(CartaACambiar);
                 senuelo.GetComponent<CartaEspecialDisplay>().card.CartaJugada = true;
                 CartaACambiar.GetComponent<CardDisplay>().card.CambiadaPorSenuelo = true;
+                CartaACambiar.GetComponent<CardDisplay>().card.CartaJugada = false;
                 GM.GetComponent<GameManager>().IsPlaying = false;
                 }
                 else
@@ -319,9 +321,9 @@ public class Efectos : MonoBehaviour
         int MayorPoder = 0;
         foreach (GameObject Carta in Melee)
         {
-            if((int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder > MayorPoder && Carta.GetComponent<CardDisplay>().card.categoria == CardUnity.Clasificacion.Plata)
+            if(Carta.GetComponent<CardDisplay>().card.PuntosDePoder > MayorPoder && Carta.GetComponent<CardDisplay>().card.categoria == CardUnity.Clasificacion.Plata)
             {
-                MayorPoder = (int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
+                MayorPoder = Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
                 other = Carta;
             }
         }
@@ -374,51 +376,36 @@ public class Efectos : MonoBehaviour
         {
             if(carta.GetComponent<CartaEspecialDisplay>().card.ID == 24)
             {
-                SubirPoder(Melee_1);
-                SubirPoder(Melee_2);
+                Aumento(Melee_1);
+                Aumento(Melee_2);
             }
             if(carta.GetComponent<CartaEspecialDisplay>().card.ID == 34)
             {
-                SubirPoder(Melee_1);
-                SubirPoder(Melee_2);
+                Aumento(Melee_1);
+                Aumento(Melee_2);
             }
             if(carta.GetComponent<CartaEspecialDisplay>().card.ID == 25)
             {
-                SubirPoder(Ranged_1);
-                SubirPoder(Ranged_2);
+                Aumento(Ranged_1);
+                Aumento(Ranged_2);
             }
             if(carta.GetComponent<CartaEspecialDisplay>().card.ID == 35)
             {
-                SubirPoder(Ranged_1);
-                SubirPoder(Ranged_2);
+                Aumento(Ranged_1);
+                Aumento(Ranged_2);
             }
             if(carta.GetComponent<CartaEspecialDisplay>().card.ID == 26)
             {
-                SubirPoder(Siege_1);
-                SubirPoder(Siege_2);
+                Aumento(Siege_1);
+                Aumento(Siege_2);
             }
             if(carta.GetComponent<CartaEspecialDisplay>().card.ID == 36)
             {
-                SubirPoder(Siege_1);
-                SubirPoder(Siege_2);
+                Aumento(Siege_1);
+                Aumento(Siege_2);
             }
         }
         EliminarCartasClima();
-    }
-    public void SubirPoder(List<GameObject> Lista)
-    {
-        foreach (GameObject carta in Lista)
-        {
-            if(carta.GetComponent<CardDisplay>().card.categoria == CardUnity.Clasificacion.Plata)
-            {
-                carta.GetComponent<CardDisplay>().card.PuntosDePoder += 2;
-                Debug.Log( carta.GetComponent<CardDisplay>().card.nombre + "," + carta.GetComponent<CardDisplay>().card.PuntosDePoder);
-            }
-            else
-            {
-                Debug.Log( carta.GetComponent<CardDisplay>().card.nombre + "," + carta.GetComponent<CardDisplay>().card.PuntosDePoder);
-            }  
-        }
     }
     public void AumentoPorZona(GameObject other) //Este metodo es el q le paso a cada carta de aumento para q verifique d q zona es
     //y aplique el efecto Aumento
@@ -665,89 +652,64 @@ public class Efectos : MonoBehaviour
     { 
         List<GameObject> CartaMenorPoder = new List<GameObject>();
         int MenorPoder = 100;
-        int MenorPoder1 = 100;
-        int MenorPoder2 = 100;
-        int MenorPoder3 = 100;
-        
+        GameObject Card = null;
         foreach (GameObject Carta in Melee)
         {
-            if((int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder < MenorPoder)
+            if(Carta.GetComponent<CardDisplay>().card.PuntosDePoder < MenorPoder)
             {
-                MenorPoder = (int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
-                CartaMenorPoder.Add(Carta);
+                MenorPoder = Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
+                Card = Carta;
             }
         }
         foreach (GameObject Carta in Ranged)
         {
-            if((int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder < MenorPoder1)
+            if(Carta.GetComponent<CardDisplay>().card.PuntosDePoder < MenorPoder)
             {
-                MenorPoder1 = (int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
-                CartaMenorPoder.Add(Carta);
+                MenorPoder = Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
+                Card = Carta;
             }
         }
         foreach (GameObject Carta in Siege)
         {
-            if((int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder < MenorPoder2)
+            if(Carta.GetComponent<CardDisplay>().card.PuntosDePoder < MenorPoder)
             {
-                MenorPoder2 = (int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
-                CartaMenorPoder.Add(Carta);
+                MenorPoder = Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
+                Card = Carta;
             }
         }
-        
-        for (int i = 0; i < CartaMenorPoder.Count; i++)
-        { 
-            if((int)CartaMenorPoder[i].GetComponent<CardDisplay>().card.PuntosDePoder < MenorPoder3)
-            {
-                MenorPoder3 = (int)CartaMenorPoder[i].GetComponent<CardDisplay>().card.PuntosDePoder;
-                other = CartaMenorPoder[i];
-            }
-        }
-
-    return other;
+    return Card;
     }
     public GameObject BCCMP(List<GameObject> Melee, List<GameObject> Ranged, List<GameObject> Siege) //Este metodo busca la carta con mayor poder del campo del rival
     {
         List <GameObject> CartaMayorPoder = new List<GameObject>();
         int MayorPoder = 0;
-        int MayorPoder1 = 0;
-        int MayorPoder2 = 0;
-        int MP = 0;
+        GameObject Card = null;
         
         foreach (GameObject Carta in Melee)
         {
-            if((int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder > MayorPoder)
+            if(Carta.GetComponent<CardDisplay>().card.PuntosDePoder > MayorPoder)
             {
-                MayorPoder = (int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
-                CartaMayorPoder.Add(Carta);
+                MayorPoder = Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
+                Card = Carta;
             }
         }
         foreach (GameObject Carta in Ranged)
         {
-            if((int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder > MayorPoder1)
+            if(Carta.GetComponent<CardDisplay>().card.PuntosDePoder > MayorPoder)
             {
-                MayorPoder1 = (int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
-                CartaMayorPoder.Add(Carta);
+                MayorPoder = Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
+                Card = Carta;
             }
         }
         foreach (GameObject Carta in Siege)
         {
-            if((int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder > MayorPoder2)
+            if((int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder > MayorPoder)
             {
-                MayorPoder2 = (int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
-                CartaMayorPoder.Add(Carta);
+                MayorPoder = (int)Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
+                Card = Carta;
             }
         }
-        
-        for (int i = 0; i < CartaMayorPoder.Count; i++)
-        { 
-            if((int)CartaMayorPoder[i].GetComponent<CardDisplay>().card.PuntosDePoder > MP)
-            {
-                MP = (int)CartaMayorPoder[i].GetComponent<CardDisplay>().card.PuntosDePoder;
-                other = CartaMayorPoder[i];
-            }
-        }
-
-    return other;
+    return Card;
     }
 
     //Este metodo chequea cuando se puede activar el efecto promedio
@@ -851,36 +813,36 @@ public class Efectos : MonoBehaviour
         int n = 1;
         if(Carta.GetComponent<CardDisplay>().card.ataque == CardUnity.TipoDeAtaque.Melee)
         {
-        foreach (GameObject carta in Melee)
-        {
-            if(carta.GetComponent<CardDisplay>().card.nombre == Carta.GetComponent<CardDisplay>().card.nombre)
+           foreach (GameObject carta in Melee)
             {
-                Debug.Log("Se encontro una carta igual");
-                n++;
+                if(Carta.GetComponent<CardDisplay>().card.nombre == carta.GetComponent<CardDisplay>().card.nombre)
+                {
+                    Debug.Log("Se encontro una carta igual");
+                    n++;
+                }
             }
-        }
         }
         else if(Carta.GetComponent<CardDisplay>().card.ataque == CardUnity.TipoDeAtaque.Ranged)
         {
-        foreach (GameObject carta in Ranged)
-        {
-            if(carta.GetComponent<CardDisplay>().card.nombre == Carta.GetComponent<CardDisplay>().card.nombre)
+            foreach (GameObject carta in Ranged)
+            {
+            if(Carta.GetComponent<CardDisplay>().card.nombre == carta.GetComponent<CardDisplay>().card.nombre)
             {
                 Debug.Log("Se encontro una carta igual");
                 n++;
             }
-        }
+            }
         }
         else  if(Carta.GetComponent<CardDisplay>().card.ataque == CardUnity.TipoDeAtaque.Siege)
         {
-        foreach (GameObject carta in Siege)
-        {
-            if(carta.GetComponent<CardDisplay>().card.nombre == Carta.GetComponent<CardDisplay>().card.nombre)
+            foreach (GameObject carta in Siege)
             {
-                Debug.Log("Se encontro una carta igual");
-                n++;
+                if(Carta.GetComponent<CardDisplay>().card.nombre == carta.GetComponent<CardDisplay>().card.nombre)
+                {
+                    Debug.Log("Se encontro una carta igual");
+                    n++;
+                }
             }
-        }
         }
         Carta.GetComponent<CardDisplay>().card.PuntosDePoder = n * Carta.GetComponent<CardDisplay>().card.PuntosDePoder;
     }

@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Player2.unity
     guid: fe9fbca133c37cc4a8fcf2f747f3d5e8
+  - enabled: 1
+    path: Assets/Scenes/Empate.unity
+    guid: 956c2f062bf30c04eb2515528e2273e7
   m_configObjects: {}

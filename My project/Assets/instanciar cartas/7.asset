@@ -17,6 +17,7 @@ MonoBehaviour:
   ID: 7
   imagen: {fileID: 21300000, guid: 8f18b35a34c29e8488e54dcc02bb48d3, type: 3}
   CartaJugada: 0
+  CambiadaPorSenuelo: 0
   FONDO: {fileID: 21300000, guid: 901c8e31945582f44842c75bf34122a1, type: 3}
   faccion: 0
   PoderOriginal: 6

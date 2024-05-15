@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
         Metodos = GameObject.Find("metodos");
         Cementerio1 = GameObject.Find("Cementery1");
         Cementerio2 = GameObject.Find("Cementery2");
+        RestaurarBooleano();
     }
 
     void Update()
@@ -114,6 +115,11 @@ public class GameManager : MonoBehaviour
         {
             Player2Win();
         }
+        else if(RG1 == 2 && RG2 == 2)
+        {
+            //RestaurarBooleano();
+            SceneManager.LoadScene("Empate");
+        }
     }
     public void NewRound()
     {
@@ -138,7 +144,14 @@ public class GameManager : MonoBehaviour
                 card.transform.SetParent(Cementerio1.transform, false);
                 Cementerio1.GetComponent<Cementery>().DeadCards.Add(card);
                 deck1.GetComponent<Draw>().CardsInHand.Remove(card);
-                card.GetComponent<CardDisplay>().card.CartaJugada = true;
+                if(card.CompareTag("Carta"))
+                {
+                    card.GetComponent<CardDisplay>().card.CartaJugada = true;
+                }
+                else if(card.CompareTag("CartaEspecial"))
+                {
+                    card.GetComponent<CartaEspecialDisplay>().card.CartaJugada = true;
+                }
             }
         }
         //El jugador 2 roba dos cartas
@@ -160,7 +173,14 @@ public class GameManager : MonoBehaviour
                 card.transform.SetParent(Cementerio2.transform, false);
                 Cementerio2.GetComponent<Cementery>().DeadCards.Add(card);
                 deck2.GetComponent<Draw>().CardsInHand.Remove(card);
-                card.GetComponent<CardDisplay>().card.CartaJugada = true;
+                if(card.CompareTag("Carta"))
+                {
+                    card.GetComponent<CardDisplay>().card.CartaJugada = true;
+                }
+                else if(card.CompareTag("CartaEspecial"))
+                {
+                    card.GetComponent<CartaEspecialDisplay>().card.CartaJugada = true;
+                }
             }
         }
 
@@ -182,17 +202,17 @@ public class GameManager : MonoBehaviour
     }
     public void Player1Win()
     {
-        RestaurarBooleano();
+        //RestaurarBooleano();
         SceneManager.LoadScene("Player1");
     }
     public void Player2Win()
     {
-        RestaurarBooleano();
+        //RestaurarBooleano();
         SceneManager.LoadScene("Player2");
     }
     public void RestaurarBooleano() //Pone en false el booleano de la carta jugada para las nuevas partidas
     {
-        foreach (GameObject card in Cementerio1.GetComponent<Cementery>().DeadCards)
+        foreach (GameObject card in deck1.GetComponent<Draw>().CardsInDeck)
         {
             if(card.CompareTag("Carta"))
             {
@@ -203,7 +223,7 @@ public class GameManager : MonoBehaviour
                 card.GetComponent<CartaEspecialDisplay>().card.CartaJugada = false;
             }
         }
-        foreach (GameObject card in Cementerio2.GetComponent<Cementery>().DeadCards)
+        foreach (GameObject card in deck2.GetComponent<Draw>().CardsInDeck)
         {
             if(card.CompareTag("Carta"))
             {
